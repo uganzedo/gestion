@@ -1,0 +1,97 @@
+---
+title: "Gestion pesquera desde el punto  de vista empresarial"
+author: "Dr. Unai Ganzedo"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  slidy_presentation:
+    footer: "Marine Support<"
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Diagrama de los Participante en la gestión.
+
+```{r setup2, echo=FALSE}
+
+suppressWarnings(suppressMessages(library(  DiagrammeR,warn.conflicts = FALSE, verbose =  F)))
+
+grViz("
+digraph dot {
+
+graph [layout = dot]
+
+node [shape = circle,
+      style = filled,
+      color = grey,
+      label = '']
+
+node [fillcolor = green]
+a[label='Sostenibilidad']
+
+node [fillcolor = orange]
+b[label='Gestion Pesquera'] c[label='Clientes'] d[label='Sector Extractor']
+
+node [fillcolor = yellow]
+
+edge [color = grey]
+a -> {b c d}
+b -> {e[label='Organismos oficiales'] f[label='ONGs'] g[label='Certificación']}
+c -> {k[label='Exigencia'] l[label='Disponibilidad'] m[label='Concienciación'] }
+d -> {q[label='Visión de futuro'] r[label='Concienciación'] s[label='Sensibilidad']}
+}")
+```
+
+
+
+## R Markdown
+
+
+```{r setup1, include=FALSE}
+DiagrammeR::grViz("
+  digraph graph2 {
+  
+  graph [layout = dot, rankdir = LR]
+  
+  # node definitions with substituted label text
+  node [shape = oval]
+  a [label = '@@1']
+  b [label = '@@2']
+  c [label = '@@3']
+  d [label = '@@4']
+  
+  a -> b -> c -> d
+  }
+  
+  [1]: names(iris)[1]
+  [2]: names(iris)[2]
+  [3]: names(iris)[3]
+  [4]: names(iris)[4]
+  ", 
+  height = 100)
+    ```
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide2 with R Output
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
