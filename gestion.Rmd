@@ -1,6 +1,6 @@
 ---
 title: "Gestion pesquera desde el punto  de vista empresarial"
-author: "Dr. Unai Ganzedo Lopez"
+author: "Dr. Unai Ganzedo Lopez ss"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   slidy_presentation:
