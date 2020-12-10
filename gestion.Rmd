@@ -12,16 +12,16 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Diagrama de los Participante en la gestión.
-
-```{r setup2, echo=FALSE}
+## Diagrama Stakeholders
+```{r setup2, , fig.pos='ht', echo=FALSE, out.width='100%',fig.align='center',fig.cap='Diagrama Stakeholders'}
 
 suppressWarnings(suppressMessages(library(  DiagrammeR,warn.conflicts = FALSE, verbose =  F)))
 
 grViz("
 digraph dot {
 
-graph [layout = dot]
+    
+graph [layout = dot, label='',fontsize =300,labelloc = t]
 
 node [shape = circle,
       style = filled,
@@ -29,14 +29,14 @@ node [shape = circle,
       label = '']
 
 node [fillcolor = green]
-a[label='Sostenibilidad']
+a[label='Sostenibilidad',fontsize =200, width = 10]
 
-node [fillcolor = orange]
-b[label='Gestion Pesquera'] c[label='Clientes'] d[label='Sector Extractor']
+node [fillcolor = orange, width = 10,fontsize =100]
+b[label='Gestión Pesquera'] c[label='Clientes'] d[label='Sector extractivo']
 
-node [fillcolor = yellow]
+node [fillcolor = yellow , width = 10,fontsize =100]
 
-edge [color = grey]
+edge [color = grey,dir=both ,arrowsize = 3,minlen = 10, color = Black]
 a -> {b c d}
 b -> {e[label='Organismos oficiales'] f[label='ONGs'] g[label='Certificación']}
 c -> {k[label='Exigencia'] l[label='Disponibilidad'] m[label='Concienciación'] }
@@ -46,37 +46,122 @@ d -> {q[label='Visión de futuro'] r[label='Concienciación'] s[label='Sensibili
 
 
 
-## R Markdown
+## ¿Qué quiere el cliente ?
+
+```{r setup3, , fig.pos='ht', echo=FALSE, out.width='100%',fig.align='center',fig.cap='El interés como clientes'}
+
+suppressWarnings(suppressMessages(library(  DiagrammeR,warn.conflicts = FALSE, verbose =  F)))
+
+grViz("
+digraph dot {
+
+    
+graph [layout = dot, label='',fontsize =300,labelloc = t]
+
+node [shape = circle,
+      style = filled,
+      color = grey,
+      label = '']
+
+node [fillcolor = green]
+
+a[label='Cliente',fontsize =200, width = 10]
+node [fillcolor = orange, width = 10,fontsize =100]
+
+b[label='Sostenibilidad'] c[label='Calidad'] d[label='Precio']
+node [fillcolor = yellow , width = 10,fontsize =100]
+
+edge [color = grey,dir=both ,arrowsize = 3,minlen = 10, color = Black]
 
 
-```{r setup1, include=FALSE}
-DiagrammeR::grViz("
-  digraph graph2 {
-  
-  graph [layout = dot, rankdir = LR]
-  
-  # node definitions with substituted label text
-  node [shape = oval]
-  a [label = '@@1']
-  b [label = '@@2']
-  c [label = '@@3']
-  d [label = '@@4']
-  
-  a -> b -> c -> d
-  }
-  
-  [1]: names(iris)[1]
-  [2]: names(iris)[2]
-  [3]: names(iris)[3]
-  [4]: names(iris)[4]
-  ", 
-  height = 100)
-    ```
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+a -> {b c d}
+b -> {e[label='Ecológica'] f[label='Social'] g[label='Visión de futuro']}
+c -> {k[label='Alimentaria']  m[label='Seguridad'] }
+d -> {q[label='Interés'] r[label='Preocupación'] s[label='Sensibilidad']}
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
+}")
+```
+
+
+
+## ¿Qué quiere al armador?
+
+```{r setup4, , fig.pos='ht', echo=FALSE, out.width='100%',fig.align='center',fig.cap='El interés como armador'}
+
+suppressWarnings(suppressMessages(library(  DiagrammeR,warn.conflicts = FALSE, verbose =  F)))
+
+grViz("
+digraph dot {
+
+    
+graph [layout = dot, label='',fontsize =300,labelloc = t]
+
+node [shape = circle,
+      style = filled,
+      color = grey,
+      label = '']
+
+node [fillcolor = green]
+
+a[label='Armador',fontsize =200, width = 10]
+node [fillcolor = orange, width = 10,fontsize =100]
+
+b[label='Rentabilidad'] c[label='Estabilidad'] d[label='Imagen']
+node [fillcolor = yellow , width = 10,fontsize =100]
+
+edge [color = grey,dir=both ,arrowsize = 3,minlen = 10, color = Black]
+
+
+
+a -> {b c d}
+b -> {e[label='Buen Precio'] f[label='Menos costos'] }
+c -> {k[label='Tranquilidad']  m[label='Durabilidad'] }
+d -> {q[label='Prestigio'] r[label='Competitividad'] }
+
+
+}")
+```
+
+
+## ¿Qué quieren los gestores?
+
+```{r setup5, , fig.pos='ht', echo=FALSE, out.width='100%',fig.align='center',fig.cap='El interés como gestor'}
+
+suppressWarnings(suppressMessages(library(  DiagrammeR,warn.conflicts = FALSE, verbose =  F)))
+
+grViz("
+digraph dot {
+
+    
+graph [layout = dot, label='',fontsize =300,labelloc = t]
+
+node [shape = circle,
+      style = filled,
+      color = grey,
+      label = '']
+
+node [fillcolor = green]
+
+a[label='Gestores',fontsize =200, width = 10]
+node [fillcolor = orange, width = 10,fontsize =100]
+
+b[label='Economía'] c[label='Ecología'] d[label='Justicia Social']
+node [fillcolor = yellow , width = 10,fontsize =100]
+
+edge [color = grey,dir=both ,arrowsize = 3,minlen = 10, color = Black]
+
+
+
+a -> {b c d}
+b -> {e[label='Directo'] f[label='Indirecto'] }
+c -> {k[label='Sostenibilidad']   }
+d -> {q[label='Paises'] r[label='Banderas'] m[label='Artes de pesca']}
+
+
+}")
+```
 ## Slide2 with R Output
 
 - Bullet 1
